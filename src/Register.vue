@@ -1,36 +1,41 @@
 <template>
-    <div class="h-screen flex justify-center items-center bg-blue-100">
-        <div class="max-w-md w-full p-6 bg-blue-300 rounded-md shadow-lg">
-            <h2 class="text-center text-2xl font-bold text-blue-800">Register</h2>
-            <form @submit.prevent="submit" class="space-y-6">
+    <div class="h-screen flex justify-center items-center bg-gray-50">
+        <div class="max-w-md w-full p-8 bg-white rounded-lg shadow-xl">
+            <h2 class="text-center text-3xl font-extrabold text-blue-600">Create an Account</h2>
+            <p class="text-center text-gray-500 text-sm mt-2">Please fill out the form below to register</p>
+            <form @submit.prevent="submit" class="space-y-6 mt-6">
                 <div>
-                    <label for="username" class="block text-gray-700 font-medium">Username</label>
+                    <label for="username" class="block text-gray-600 font-semibold">Username</label>
                     <input id="username" v-model="form.username" type="text"
-                        class="w-full rounded focus:ring-2 focus:ring-blue-400 focus:outline-none p-2" required>
+                        class="w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        placeholder="Enter your username" required>
                 </div>
 
                 <div>
-                    <label for="name" class="block text-gray-700 font-medium">Name</label>
+                    <label for="name" class="block text-gray-600 font-semibold">Name</label>
                     <input id="name" v-model="form.name" type="text"
-                        class="w-full rounded focus:ring-2 focus:ring-blue-400 focus:outline-none p-2" required>
+                        class="w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        placeholder="Enter your name" required>
                 </div>
 
                 <div>
-                    <label for="password" class="block text-gray-700 font-medium">Password</label>
+                    <label for="password" class="block text-gray-600 font-semibold">Password</label>
                     <input id="password" v-model="form.password" type="password"
-                        class="w-full rounded focus:ring-2 focus:ring-blue-400 focus:outline-none p-2" required>
+                        class="w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        placeholder="Enter your password" required>
                 </div>
 
                 <div>
-                    <label for="reenterPassword" class="block text-gray-700 font-medium">Re-enter Password</label>
+                    <label for="reenterPassword" class="block text-gray-600 font-semibold">Re-enter Password</label>
                     <input id="reenterPassword" v-model="form.reenterPassword" type="password"
-                        class="w-full rounded focus:ring-2 focus:ring-blue-400 focus:outline-none p-2" required>
+                        class="w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                        placeholder="Confirm your password" required>
                 </div>
 
                 <p v-if="err" class="text-red-500 text-sm mt-2">{{ err }}</p>
 
                 <button type="submit"
-                    class="w-full bg-blue-500 rounded text-white py-2 hover:bg-blue-600 transition-all duration-300"
+                    class="w-full bg-blue-600 text-white font-semibold rounded-lg py-3 hover:bg-blue-700 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     :disabled="isLoading">
                     {{ isLoading ? "Submitting..." : "Submit" }}
                 </button>
