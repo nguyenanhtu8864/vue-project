@@ -82,22 +82,6 @@ function validateForm() {
         err.value = "Passwords do not match."
         return false
     }
-    if (form.value.password.length < 8) {
-        err.value = "Password must be at least 8 characters long.";
-        return false;
-    }
-    if (!/[!@#$%^&*()\-_=+]/.test(form.value.password)) {
-        err.value = "Password must contain at least one special character.";
-        return false;
-    }
-    if (!/\d/.test(form.value.password)) {
-        err.value = "Password must contain at least one number.";
-        return false;
-    }
-    if (!/[A-Z]/.test(form.value.password)) {
-        err.value = "Password must contain at least one uppercase letter.";
-        return false;
-    }
     err.value = ''
     return true
 }
