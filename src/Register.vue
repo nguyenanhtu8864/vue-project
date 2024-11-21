@@ -82,6 +82,22 @@ function validateForm() {
         err.value = "Passwords do not match."
         return false
     }
+    if (form.value.password.length < 6 || form.value.password.length > 20) {
+        err.value = "Password must be between 6 and 20 characters long."
+        return false
+    }
+    if (form.value.name.length < 1 || form.value.password.length > 100) {
+        err.value = "Name must be between 1 and 100 characters long."
+        return false
+    }
+    if (form.value.username.length < 6 || form.value.password.length > 20) {
+        err.value = "Username must be between 6 and 20 characters long."
+        return false
+    }
+    if (!/^[a-z][a-z0-9]*$/.test(form.value.username)) {
+        err.value = "Username must start with a lowercase letter and contain only lowercase letters or digits."
+        return false
+    }
     err.value = ''
     return true
 }
